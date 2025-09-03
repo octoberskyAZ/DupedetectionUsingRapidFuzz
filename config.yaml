@@ -1,0 +1,20 @@
+# Orders comparison date range
+start_date: "2025-08-01T00:00:00+00:00"
+end_date: "2025-08-31T23:59:59+00:00"
+
+# CSV file path
+orders_csv: "data/raw/Orders_last_6_months.csv"
+
+# Duplicate detection settings
+address_similarity_threshold: 90
+
+# Fields to use for duplicate matching and type of match
+default_fuzzy_threshold: 90
+matching_fields:
+  AccountId: exact
+  Supplier__c: exact
+  Address__c: fuzzy
+  MRC__c: exact
+  Contract_Signed_Date__c:
+    type: date_range
+    max_days_diff: 60
